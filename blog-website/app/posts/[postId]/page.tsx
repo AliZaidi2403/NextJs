@@ -2,9 +2,17 @@ import { getSortedPostsData, getPostData } from "@/lib/posts";
 import getFormattedDate from "@/lib/getFormattedDate";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+
 export function generateStaticParams() {
   const posts = getSortedPostsData();
 
+  /* const postIds = posts.map((post) => ({
+    postId: post.id,
+  }));
+  return {
+    postIds,
+    revalidate: 60,
+  };*/
   return posts.map((post) => ({
     postId: post.id,
   }));
